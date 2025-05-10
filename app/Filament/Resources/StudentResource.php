@@ -21,7 +21,8 @@ class StudentResource extends Resource
 {
     protected static ?string $model = Student::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-user-group';
+    protected static ?string $navigationGroup = 'Master Data';
 
     public static function form(Form $form): Form
     {
@@ -80,16 +81,6 @@ class StudentResource extends Resource
             ])
             ->filters([
                 //
-            ])
-            ->tabs([
-                'Semua' => null,
-                'Kelas 1' => fn($query) => $query->whereHas('currentClass.classroom.classLevel', fn($q) => $q->where('name', '1')),
-                'Kelas 2' => fn($query) => $query->whereHas('currentClass.classroom.classLevel', fn($q) => $q->where('name', '2')),
-                'Kelas 3' => fn($query) => $query->whereHas('currentClass.classroom.classLevel', fn($q) => $q->where('name', '3')),
-                'Kelas 4' => fn($query) => $query->whereHas('currentClass.classroom.classLevel', fn($q) => $q->where('name', '4')),
-                'Kelas 5' => fn($query) => $query->whereHas('currentClass.classroom.classLevel', fn($q) => $q->where('name', '5')),
-                'Kelas 6' => fn($query) => $query->whereHas('currentClass.classroom.classLevel', fn($q) => $q->where('name', '6')),
-                'Alumni'  => fn($query) => $query->where('is_alumni', true),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),

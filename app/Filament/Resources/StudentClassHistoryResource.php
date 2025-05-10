@@ -17,7 +17,8 @@ class StudentClassHistoryResource extends Resource
 {
     protected static ?string $model = StudentClassHistory::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-archive-box-arrow-down';
+    protected static ?string $navigationGroup = 'Akademik';
 
     public static function form(Form $form): Form
     {
