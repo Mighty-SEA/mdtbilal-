@@ -55,11 +55,15 @@
         .swiper-pagination-bullet-active {
             @apply bg-green-500;
         }
+        .navbar-transparent {
+            background: transparent !important;
+            box-shadow: none !important;
+        }
     </style>
 </head>
 <body class="font-sans bg-gray-50">
     <!-- Header/Navbar -->
-    <header id="navbar" class="fixed w-full z-10 transition-all duration-300 py-3 bg-green-600">
+    <header id="navbar" class="absolute top-0 w-full z-20 transition-all duration-300 py-3 navbar-transparent bg-transparent">
         <div class="container mx-auto px-4">
             <div class="flex justify-between items-center">
                 <!-- Logo -->
@@ -155,8 +159,11 @@
         </div>
     </header>
 
+    <!-- Navbar Placeholder untuk sticky navbar -->
+    <div id="navbar-placeholder" class="h-0 w-full"></div>
+
     <!-- Hero Section -->
-    <section id="beranda" class="pt-0">
+    <section id="beranda" class="pt-0 m-0 relative">
         <div class="swiper heroSwiper h-screen">
             <div class="swiper-wrapper">
                 <!-- Slide 1 -->
@@ -535,6 +542,8 @@
         const menuIcon = document.getElementById('menu-icon');
         const programToggle = document.getElementById('program-toggle');
         const programDropdown = document.getElementById('program-dropdown');
+        const navbar = document.getElementById('navbar');
+        const navbarPlaceholder = document.getElementById('navbar-placeholder');
         
         function openMenu() {
             mobileMenu.classList.remove('hidden', '-translate-y-2', 'opacity-0');
@@ -597,20 +606,32 @@
             },
         });
         
+        // Fungsi untuk mengatur tinggi placeholder sesuai tinggi navbar
+        function updateNavbarPlaceholderHeight() {
+            if (navbar.classList.contains('fixed')) {
+                navbarPlaceholder.style.height = navbar.offsetHeight + 'px';
+            } else {
+                navbarPlaceholder.style.height = '0px';
+            }
+        }
+        
         // Navbar Scroll Effect
         window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
             const heroSection = document.getElementById('beranda');
-            const heroHeight = heroSection.offsetHeight - 100;
+            const heroHeight = heroSection.offsetHeight;
             
             if (window.scrollY >= heroHeight) {
-                navbar.classList.remove('nav-scrolled');
-                navbar.classList.add('bg-green-600');
+                navbar.classList.remove('absolute', 'navbar-transparent', 'bg-transparent');
+                navbar.classList.add('fixed', 'top-0', 'shadow-md', 'bg-green-600');
             } else {
-                navbar.classList.add('nav-scrolled');
-                navbar.classList.remove('bg-green-600');
+                navbar.classList.add('absolute', 'navbar-transparent', 'bg-transparent');
+                navbar.classList.remove('fixed', 'top-0', 'shadow-md', 'bg-green-600');
             }
+            updateNavbarPlaceholderHeight();
         });
+        
+        // Update placeholder height ketika resize window
+        window.addEventListener('resize', updateNavbarPlaceholderHeight);
         
         // Trigger scroll event once on page load to set initial navbar state
         window.addEventListener('load', function() {
