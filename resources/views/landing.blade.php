@@ -59,6 +59,30 @@
             background: transparent !important;
             box-shadow: none !important;
         }
+        /* Batik hijau background untuk section konten */
+        .bg-batik-hijau {
+            position: relative;
+            z-index: 0;
+            background-image: url('https://w1.pngwing.com/pngs/854/376/png-transparent-floral-flower-drawing-creative-work-motif-textile-texture-green-leaf.png');
+            background-repeat: repeat;
+            background-size: 400px 400px;
+            background-position: center;
+        }
+        .bg-batik-hijau::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(255,255,255,0.85);
+            z-index: 1;
+            pointer-events: none;
+        }
+        .bg-batik-hijau > * {
+            position: relative;
+            z-index: 2;
+        }
+        .bg-white.bg-batik-hijau, .bg-gray-50.bg-batik-hijau {
+            background-color: rgba(255,255,255,0.92);
+        }
     </style>
 </head>
 <body class="font-sans bg-gray-50">
@@ -204,7 +228,7 @@
     </section>
 
     <!-- Tentang Kami -->
-    <section id="tentang" class="py-16 bg-white">
+    <section id="tentang" class="py-16 bg-white bg-batik-hijau">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-green-700 mb-2">Tentang MDT Bilal bin Rabbah</h2>
@@ -246,66 +270,8 @@
         </div>
     </section>
 
-    <!-- Program Unggulan -->
-    <section id="program" class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-green-700 mb-2">Program Unggulan</h2>
-                <div class="w-20 h-1 bg-green-600 mx-auto mb-6"></div>
-                <p class="text-gray-600 max-w-3xl mx-auto">Kami menawarkan berbagai program pendidikan Islam berkualitas untuk membentuk generasi yang berakhlak mulia dan berprestasi.</p>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Program 1 -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
-                    <img src="https://images.unsplash.com/photo-1565415612414-8b266cc29f40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
-                        alt="Tahfidz Al-Qur'an" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-green-700 mb-2">Tahfidz Al-Qur'an</h3>
-                        <p class="text-gray-600 mb-4">Program hafalan Al-Qur'an dengan metode yang menyenangkan dan efektif, dibimbing oleh guru tahfidz berpengalaman.</p>
-                        <ul class="text-gray-600 mb-4 space-y-1">
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Metode menghafal yang sistematis</li>
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Bimbingan individu dan kelompok</li>
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Target hafalan yang terukur</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <!-- Program 2 -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
-                    <img src="https://images.unsplash.com/photo-1567057559348-4c0e24dfde5b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
-                        alt="Pendidikan Akhlak" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-green-700 mb-2">Pembinaan Akhlak</h3>
-                        <p class="text-gray-600 mb-4">Pembentukan karakter dan akhlak mulia berdasarkan ajaran Islam melalui pembelajaran dan praktik sehari-hari.</p>
-                        <ul class="text-gray-600 mb-4 space-y-1">
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Pembelajaran adab dan akhlak</li>
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Praktik ibadah sehari-hari</li>
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Kegiatan sosial kemasyarakatan</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <!-- Program 3 -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
-                    <img src="https://images.unsplash.com/photo-1516534775068-ba3e7458af70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
-                        alt="Kitab Kuning" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-green-700 mb-2">Kitab Kuning</h3>
-                        <p class="text-gray-600 mb-4">Pembelajaran kitab-kitab klasik Islam untuk memperdalam pemahaman ilmu agama dan warisan ulama.</p>
-                        <ul class="text-gray-600 mb-4 space-y-1">
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Fiqih dan Ushul Fiqih</li>
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Tafsir dan Hadits</li>
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Nahwu dan Sharaf</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Galeri Foto -->
-    <section id="galeri" class="py-16 bg-white">
+    <section id="galeri" class="py-16 bg-white bg-batik-hijau">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-green-700 mb-2">Galeri Foto</h2>
@@ -366,7 +332,7 @@
     </section>
 
     <!-- Kontak dan Pendaftaran -->
-    <section id="kontak" class="py-16 bg-gray-50">
+    <section id="kontak" class="py-16 bg-gray-50 bg-batik-hijau">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-green-700 mb-2">Hubungi Kami</h2>
@@ -374,89 +340,52 @@
                 <p class="text-gray-600 max-w-3xl mx-auto">Untuk informasi lebih lanjut tentang pendaftaran dan program kami, silakan hubungi kami melalui kontak di bawah ini.</p>
             </div>
             
-            <div class="grid md:grid-cols-2 gap-10">
-                <!-- Formulir Kontak -->
-                <div class="bg-white p-8 rounded-lg shadow-lg">
-                    <h3 class="text-2xl font-semibold text-green-700 mb-6">Kirim Pesan</h3>
-                    
-                    <form action="#" method="POST" class="space-y-4">
-                        <div>
-                            <label for="nama" class="block text-gray-700 mb-2">Nama Lengkap</label>
-                            <input type="text" id="nama" name="nama" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" required>
-                        </div>
-                        
-                        <div>
-                            <label for="email" class="block text-gray-700 mb-2">Email</label>
-                            <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" required>
-                        </div>
-                        
-                        <div>
-                            <label for="telepon" class="block text-gray-700 mb-2">No. Telepon</label>
-                            <input type="tel" id="telepon" name="telepon" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" required>
-                        </div>
-                        
-                        <div>
-                            <label for="pesan" class="block text-gray-700 mb-2">Pesan</label>
-                            <textarea id="pesan" name="pesan" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" required></textarea>
-                        </div>
-                        
-                        <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-md transition duration-300">Kirim Pesan</button>
-                    </form>
-                </div>
-                
+            <div class="grid md:grid-cols-2 gap-10 items-stretch">
                 <!-- Informasi Kontak -->
-                <div>
-                    <div class="bg-white p-8 rounded-lg shadow-lg mb-8">
-                        <h3 class="text-2xl font-semibold text-green-700 mb-6">Informasi Kontak</h3>
-                        
-                        <div class="space-y-4">
-                            <div class="flex items-start">
-                                <div class="bg-green-100 p-3 rounded-full mr-4">
-                                    <i class="fas fa-map-marker-alt text-green-600 text-xl"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-gray-800">Alamat</h4>
-                                    <p class="text-gray-600">Jl. Pendidikan No. 123, Kota Bandung, Jawa Barat 40123</p>
-                                </div>
+                <div class="bg-white p-8 rounded-lg shadow-lg flex-1 border border-green-100 h-full">
+                    <h3 class="text-2xl font-semibold text-green-700 mb-6">Informasi Kontak</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="bg-green-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-map-marker-alt text-green-600 text-xl"></i>
                             </div>
-                            
-                            <div class="flex items-start">
-                                <div class="bg-green-100 p-3 rounded-full mr-4">
-                                    <i class="fas fa-phone-alt text-green-600 text-xl"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-gray-800">Telepon</h4>
-                                    <p class="text-gray-600">+62-123-4567-8900</p>
-                                </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Alamat</h4>
+                                <p class="text-gray-600">Jl. Pendidikan No. 123, Kota Bandung, Jawa Barat 40123</p>
                             </div>
-                            
-                            <div class="flex items-start">
-                                <div class="bg-green-100 p-3 rounded-full mr-4">
-                                    <i class="fas fa-envelope text-green-600 text-xl"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-gray-800">Email</h4>
-                                    <p class="text-gray-600">info@mdtbilalbinrabbah.ac.id</p>
-                                </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-green-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-phone-alt text-green-600 text-xl"></i>
                             </div>
-                            
-                            <div class="flex items-start">
-                                <div class="bg-green-100 p-3 rounded-full mr-4">
-                                    <i class="fas fa-clock text-green-600 text-xl"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-gray-800">Jam Operasional</h4>
-                                    <p class="text-gray-600">Senin - Sabtu: 07.00 - 16.00 WIB</p>
-                                </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Telepon</h4>
+                                <p class="text-gray-600">+62-123-4567-8900</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-green-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-envelope text-green-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Email</h4>
+                                <p class="text-gray-600">info@mdtbilalbinrabbah.ac.id</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-green-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-clock text-green-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Jam Operasional</h4>
+                                <p class="text-gray-600">Senin - Sabtu: 07.00 - 16.00 WIB</p>
                             </div>
                         </div>
                     </div>
-                    
-                    <!-- Peta Lokasi -->
-                    <div class="bg-white p-4 rounded-lg shadow-lg">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126748.56347862248!2d107.57311651877454!3d-6.903444341655676!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e6398252477f%3A0x146a1f93d3e815b2!2sBandung%2C%20Kota%20Bandung%2C%20Jawa%20Barat!5e0!3m2!1sid!2sid!4v1625647401050!5m2!1sid!2sid" 
-                            width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" class="rounded-lg"></iframe>
-                    </div>
+                </div>
+                <!-- Peta Lokasi -->
+                <div class="bg-white p-4 rounded-lg shadow-lg flex-1 border border-green-100 mt-8 md:mt-0 flex items-center justify-center h-full min-h-[300px]">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126748.56347862248!2d107.57311651877454!3d-6.903444341655676!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e6398252477f%3A0x146a1f93d3e815b2!2sBandung%2C%20Kota%20Bandung%2C%20Jawa%20Barat!5e0!3m2!1sid!2sid!4v1625647401050!5m2!1sid!2sid" width="100%" height="100%" style="border:0; min-height:250px;" allowfullscreen="" loading="lazy" class="rounded-lg h-full w-full"></iframe>
                 </div>
             </div>
         </div>
