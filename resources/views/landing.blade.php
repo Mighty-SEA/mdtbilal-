@@ -103,8 +103,8 @@
                 <nav class="hidden lg:flex items-center space-x-2">
                     <a href="#beranda" class="nav-link px-4 py-2 text-white hover:text-green-200 transition font-medium">Beranda</a>
                     <a href="#tentang" class="nav-link px-4 py-2 text-white hover:text-green-200 transition font-medium">Tentang</a>
-                    <a href="#program" class="nav-link px-4 py-2 text-white hover:text-green-200 transition font-medium">Program</a>
                     <a href="#galeri" class="nav-link px-4 py-2 text-white hover:text-green-200 transition font-medium">Galeri</a>
+                    <a href="#kontak" class="nav-link px-4 py-2 text-white hover:text-green-200 transition font-medium">Kontak</a>
                     <a href="{{ route('ppdb') }}" class="nav-btn ml-2 px-6 py-2.5 bg-white hover:bg-green-100 text-green-700 rounded-full transition duration-300 font-medium shadow-md">Daftar Sekarang</a>
                 </nav>
                 
@@ -141,40 +141,19 @@
                             <span>Tentang</span>
                         </a>
                         
-                        <!-- Program dengan dropdown -->
-                        <div class="relative">
-                            <button id="program-toggle" class="w-full px-3 py-2 text-gray-700 hover:text-green-600 hover:bg-green-50 rounded-lg transition-all flex items-center justify-between text-sm">
-                                <div class="flex items-center">
-                                    <i class="fas fa-book-open w-7 text-green-600"></i>
-                                    <span>Program</span>
-                                </div>
-                                <i class="fas fa-chevron-down text-xs transition-transform duration-300"></i>
-                            </button>
-                            
-                            <div id="program-dropdown" class="hidden bg-gray-50 rounded-lg mt-1 mb-1 overflow-hidden transition-all duration-300">
-                                <a href="#program" class="block px-3 py-2 pl-10 text-gray-700 hover:text-green-600 hover:bg-green-100 transition-all text-sm">
-                                    Semua Program
-                                </a>
-                                <a href="#" class="block px-3 py-2 pl-10 text-gray-700 hover:text-green-600 hover:bg-green-100 transition-all text-sm">
-                                    Tahfidz Al-Qur'an
-                                </a>
-                                <a href="#" class="block px-3 py-2 pl-10 text-gray-700 hover:text-green-600 hover:bg-green-100 transition-all text-sm">
-                                    Pembinaan Akhlak
-                                </a>
-                                <a href="#" class="block px-3 py-2 pl-10 text-gray-700 hover:text-green-600 hover:bg-green-100 transition-all text-sm">
-                                    Kitab Kuning
-                                </a>
-                            </div>
-                        </div>
-                        
                         <a href="#galeri" class="mobile-nav-link px-3 py-2 text-gray-700 hover:text-green-600 hover:bg-green-50 rounded-lg transition-all flex items-center text-sm">
                             <i class="fas fa-images w-7 text-green-600"></i>
                             <span>Galeri</span>
                         </a>
                         
+                        <a href="#kontak" class="mobile-nav-link px-3 py-2 text-gray-700 hover:text-green-600 hover:bg-green-50 rounded-lg transition-all flex items-center text-sm">
+                            <i class="fas fa-phone-alt w-7 text-green-600"></i>
+                            <span>Kontak</span>
+                        </a>
+                        
                         <div class="pt-2 mt-1 border-t border-gray-100">
-                            <a href="#kontak" class="block text-center bg-green-600 hover:bg-green-700 text-white py-2 px-3 rounded-lg transition duration-300 mt-1 text-sm">
-                                <i class="fas fa-phone-alt mr-2"></i> Hubungi Kami
+                            <a href="{{ route('ppdb') }}" class="block text-center bg-green-600 hover:bg-green-700 text-white py-2 px-3 rounded-lg transition duration-300 mt-1 text-sm">
+                                <i class="fas fa-user-plus mr-2"></i> Daftar Sekarang
                             </a>
                         </div>
                     </div>
@@ -208,7 +187,7 @@
                     <div class="absolute inset-0 flex flex-col justify-center items-center text-white p-4 text-center">
                         <h2 class="text-4xl md:text-6xl font-bold mb-4">Pendidikan Islam yang Komprehensif</h2>
                         <p class="text-xl md:text-2xl max-w-3xl mb-8">Kurikulum yang Menggabungkan Ilmu Agama, Al-Qur'an, dan Keterampilan Hidup</p>
-                        <a href="#program" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-full transition duration-300 text-lg">Lihat Program</a>
+                        <a href="#tentang" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-full transition duration-300 text-lg">Lihat Tentang Kami</a>
                     </div>
                 </div>
                 
@@ -247,24 +226,24 @@
                     
                     <div class="grid grid-cols-2 gap-6 mb-6">
                         <div class="bg-green-50 p-4 rounded-lg">
-                            <div class="text-3xl font-bold text-green-600 mb-1">100+</div>
+                            <div class="text-3xl font-bold text-green-600 mb-1"><span class="counter" data-target="100">0</span>+</div>
                             <div class="text-sm text-gray-600">Santri Aktif</div>
                         </div>
                         <div class="bg-green-50 p-4 rounded-lg">
-                            <div class="text-3xl font-bold text-green-600 mb-1">15+</div>
-                            <div class="text-sm text-gray-600">Pengajar Berpengalaman</div>
+                            <div class="text-3xl font-bold text-green-600 mb-1"><span class="counter" data-target="500">0</span>+</div>
+                            <div class="text-sm text-gray-600">Alumni</div>
                         </div>
                         <div class="bg-green-50 p-4 rounded-lg">
-                            <div class="text-3xl font-bold text-green-600 mb-1">500+</div>
-                            <div class="text-sm text-gray-600">Alumni Sukses</div>
+                            <div class="text-3xl font-bold text-green-600 mb-1"><span class="counter" data-target="2010">0</span></div>
+                            <div class="text-sm text-gray-600">Tahun Berdiri</div>
                         </div>
                         <div class="bg-green-50 p-4 rounded-lg">
-                            <div class="text-3xl font-bold text-green-600 mb-1">10+</div>
-                            <div class="text-sm text-gray-600">Tahun Pengalaman</div>
+                            <div class="text-3xl font-bold text-green-600 mb-1"><span class="counter" data-target="15">0</span>+</div>
+                            <div class="text-sm text-gray-600">Pengajar</div>
                         </div>
                     </div>
                     
-                    <a href="#program" class="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-6 rounded-full transition duration-300">Pelajari Program Kami</a>
+                    <a href="#galeri" class="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-6 rounded-full transition duration-300">Lihat Galeri Kami</a>
                 </div>
             </div>
         </div>
@@ -280,52 +259,52 @@
             </div>
             
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                <!-- Foto 1 -->
+                <!-- Foto 1 dari Google Photos -->
                 <div class="overflow-hidden rounded-lg shadow-md">
-                    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
-                        alt="Kegiatan Belajar 1" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110">
+                    <img src="https://lh3.googleusercontent.com/pw/AP1GczN42vPNVRKg-uZtCazQwfS1v4XNK96AFBdpVGM7wN1MugLE5r0Ki_ws3N3jUT2H3UIAZHrSyxXdKBjdOEghqOzV-5nMk8fqCM4Dpp-Yq3qE1ngaEdGs=w800-h600" 
+                        alt="Kegiatan MDT 1" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110">
                 </div>
                 
-                <!-- Foto 2 -->
+                <!-- Foto 2 dari Google Photos -->
                 <div class="overflow-hidden rounded-lg shadow-md">
-                    <img src="https://images.unsplash.com/photo-1550305080-4e029753abcf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" 
-                        alt="Kegiatan Belajar 2" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110">
+                    <img src="https://lh3.googleusercontent.com/pw/AP1GczMrtiamsdB4eaekeYf086ZFx03jTofXEbvfoPTvOT6DrTmZ127DwReCWwdcKxbPf1Hv-8Qy_m6NJKt_n3zKdQ1K84hzz9YyHlh2qwWCuz64BzNM3biF=w800-h600" 
+                        alt="Kegiatan MDT 2" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110">
                 </div>
                 
-                <!-- Foto 3 -->
+                <!-- Foto 3 dari Google Photos -->
                 <div class="overflow-hidden rounded-lg shadow-md">
-                    <img src="https://images.unsplash.com/photo-1610316858499-432c9c509ff3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1370&q=80" 
-                        alt="Kegiatan Belajar 3" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110">
+                    <img src="https://lh3.googleusercontent.com/pw/AP1GczPqWuw2aGygg466NgMcSJ8J9l7VOl1_Q2OqJOBCqtZwjfdL-UvbrxmXlk6hFWow6XTGwvhehr8bgrZtTsPlmHlOFNLpyXQjvI8ra3Paxw8c8ZkrdprT=w800-h600" 
+                        alt="Kegiatan MDT 3" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110">
                 </div>
                 
-                <!-- Foto 4 -->
+                <!-- Foto 4 dari Google Photos -->
                 <div class="overflow-hidden rounded-lg shadow-md">
-                    <img src="https://images.unsplash.com/photo-1576267423445-b2e0074d68a4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
-                        alt="Kegiatan Belajar 4" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110">
+                    <img src="https://lh3.googleusercontent.com/pw/AP1GczMZpzcaUfBNNxI4-H678D_J7uqXJS6ETpCayDaXc8m4_iNI0pGA7YyKqPhndXmEfsqwTDSyNo1X4RqgMWnqydOaEHTmxJVTGGwOU-6SL1IMxo9WJC67=w800-h600" 
+                        alt="Kegiatan MDT 4" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110">
                 </div>
                 
-                <!-- Foto 5 -->
+                <!-- Foto 5 dari Google Photos -->
                 <div class="overflow-hidden rounded-lg shadow-md">
-                    <img src="https://images.unsplash.com/photo-1558021212-51b6ecfa0db9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1783&q=80" 
-                        alt="Kegiatan Belajar 5" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110">
+                    <img src="https://lh3.googleusercontent.com/pw/AP1GczNwm4oSLcZdVaW8t0TD4oj6tZlGY5eSIIbifpcMyjLvxTghCv0OVHingmhYTtLh2ZSfIxHdVzWwThDrwFejhBiRAKp73oY-s9iWMuPDabKqmywQDJ75=w800-h600" 
+                        alt="Kegiatan MDT 5" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110">
                 </div>
                 
-                <!-- Foto 6 -->
+                <!-- Foto 6 dari Google Photos -->
                 <div class="overflow-hidden rounded-lg shadow-md">
-                    <img src="https://images.unsplash.com/photo-1508779544523-6c9a31ddbe4b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
-                        alt="Kegiatan Belajar 6" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110">
+                    <img src="https://lh3.googleusercontent.com/pw/AP1GczMzYpfJR77M9oNlDu4cYidl9mu3Rg5VNeMNsExXctemd3XMoWAxCyRiWjJInxIIGGp8YRDdp6uE7EDEVhLC3Y0mq_Zq4SdBEZRDX2QcfES8bX98N-B1=w800-h600" 
+                        alt="Kegiatan MDT 6" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110">
                 </div>
                 
-                <!-- Foto 7 -->
+                <!-- Foto 7 dari Google Photos -->
                 <div class="overflow-hidden rounded-lg shadow-md">
-                    <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80" 
-                        alt="Kegiatan Belajar 7" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110">
+                    <img src="https://lh3.googleusercontent.com/pw/AP1GczNv_KX8Sk6zmWJLEx6sglSw3YaOtaJk4SbQ913FIVws2DecYjO3HtCph2mMbKisB-HsbE8GQD306kGCjB53wYDJ4WxpgtdbJTggJ910N87KjDS-FbZi=w800-h600" 
+                        alt="Kegiatan MDT 7" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110">
                 </div>
                 
-                <!-- Foto 8 -->
+                <!-- Foto 8 dari Google Photos -->
                 <div class="overflow-hidden rounded-lg shadow-md">
-                    <img src="https://images.unsplash.com/photo-1590272456521-1bbe160a18ce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1527&q=80" 
-                        alt="Kegiatan Belajar 8" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110">
+                    <img src="https://lh3.googleusercontent.com/pw/AP1GczMubF8bXkP8d15yaGBbNWpQNMAo9YS77EuwtcFnz1pPMmItj9px8YKbea9PWL1n_-W3D2CQNJEbkyufs_YVejr00-7Z6amVvS8Vgqkg7PvPM37dY5wc=w800-h600" 
+                        alt="Kegiatan MDT 8" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110">
                 </div>
             </div>
         </div>
@@ -381,11 +360,29 @@
                                 <p class="text-gray-600">Sabtu - Ahad : 07.00 - 20.00 WIB</p>
                             </div>
                         </div>
+                        
+                        <!-- Tombol WhatsApp -->
+                        <div class="mt-6 pt-4 border-t border-gray-100">
+                            <a href="https://wa.me/6281234567890?text=Assalamu'alaikum,%20saya%20ingin%20bertanya%20tentang%20MDT%20Bilal%20bin%20Rabbah" 
+                               target="_blank" 
+                               class="flex items-center justify-center bg-green-500 hover:bg-green-600 text-white py-3 px-6 rounded-lg transition duration-300 w-full">
+                                <i class="fab fa-whatsapp text-xl mr-2"></i>
+                                <span class="font-medium">WhatsApp</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <!-- Peta Lokasi -->
                 <div class="bg-white p-4 rounded-lg shadow-lg flex-1 border border-green-100 mt-8 md:mt-0 flex items-center justify-center h-full min-h-[300px]">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126748.56347862248!2d107.57311651877454!3d-6.903444341655676!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e6398252477f%3A0x146a1f93d3e815b2!2sBandung%2C%20Kota%20Bandung%2C%20Jawa%20Barat!5e0!3m2!1sid!2sid!4v1625647401050!5m2!1sid!2sid" width="100%" height="100%" style="border:0; min-height:250px;" allowfullscreen="" loading="lazy" class="rounded-lg h-full w-full"></iframe>
+                    <div style="position: relative; width: 100%; height: 100%;">
+                        <div style="position: relative; padding-bottom: 75%; height: 0; overflow: hidden;">
+                            <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" 
+                                loading="lazy" 
+                                allowfullscreen 
+                                src="https://maps.google.com/maps?q=mdt+bilal+bin+rabbah&output=embed">
+                            </iframe>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -394,8 +391,8 @@
     <!-- Footer -->
     <footer class="bg-green-800 text-white py-10">
         <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-4 gap-8">
-                <div>
+            <div class="flex flex-col">
+                <div class="mb-6">
                     <div class="flex items-center space-x-2 mb-4">
                         <img src="{{ asset('favicon-32x32.png') }}" alt="Logo" class="h-10 w-10">
                         <div>
@@ -403,7 +400,7 @@
                             <p class="text-xs text-green-200">Pendidikan Islam Berkualitas</p>
                         </div>
                     </div>
-                    <p class="text-green-200 mb-4">Membentuk generasi yang berakhlak mulia, hafal Al-Qur'an, dan siap menghadapi tantangan zaman.</p>
+                    <p class="text-green-200 mb-4 max-w-xl">Membentuk generasi yang berakhlak mulia, hafal Al-Qur'an, dan siap menghadapi tantangan zaman.</p>
                     <div class="flex space-x-4">
                         <a href="#" class="text-white hover:text-green-200 transition"><i class="fab fa-facebook-f text-xl"></i></a>
                         <a href="#" class="text-white hover:text-green-200 transition"><i class="fab fa-instagram text-xl"></i></a>
@@ -411,49 +408,9 @@
                         <a href="#" class="text-white hover:text-green-200 transition"><i class="fab fa-twitter text-xl"></i></a>
                     </div>
                 </div>
-                
-                <div>
-                    <h3 class="text-lg font-semibold mb-4 border-b border-green-700 pb-2">Tautan Cepat</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#beranda" class="text-green-200 hover:text-white transition">Beranda</a></li>
-                        <li><a href="#tentang" class="text-green-200 hover:text-white transition">Tentang Kami</a></li>
-                        <li><a href="#program" class="text-green-200 hover:text-white transition">Program Unggulan</a></li>
-                        <li><a href="#galeri" class="text-green-200 hover:text-white transition">Galeri Foto</a></li>
-                        <li><a href="#kontak" class="text-green-200 hover:text-white transition">Kontak</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h3 class="text-lg font-semibold mb-4 border-b border-green-700 pb-2">Program Pendidikan</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-green-200 hover:text-white transition">Tahfidz Al-Qur'an</a></li>
-                        <li><a href="#" class="text-green-200 hover:text-white transition">Bahasa Arab</a></li>
-                        <li><a href="#" class="text-green-200 hover:text-white transition">Kajian Kitab Kuning</a></li>
-                        <li><a href="#" class="text-green-200 hover:text-white transition">Pembinaan Akhlak</a></li>
-                        <li><a href="#" class="text-green-200 hover:text-white transition">Keterampilan Hidup</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h3 class="text-lg font-semibold mb-4 border-b border-green-700 pb-2">Kontak Kami</h3>
-                    <ul class="space-y-3">
-                        <li class="flex items-start">
-                            <i class="fas fa-map-marker-alt text-green-300 mr-3 mt-1"></i>
-                            <span>Jl. Pendidikan No. 123, Kota Bandung, Jawa Barat 40123</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-phone-alt text-green-300 mr-3 mt-1"></i>
-                            <span>+62-123-4567-8900</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-envelope text-green-300 mr-3 mt-1"></i>
-                            <span>info@mdtbilalbinrabbah.ac.id</span>
-                        </li>
-                    </ul>
-                </div>
             </div>
             
-            <div class="border-t border-green-700 mt-8 pt-8 text-center">
+            <div class="border-t border-green-700 mt-8 pt-8">
                 <p class="text-green-200">© 2023 MDT Bilal bin Rabbah. Hak Cipta Dilindungi.</p>
             </div>
         </div>
@@ -469,8 +426,6 @@
         const closeMenu = document.getElementById('close-menu');
         const mobileMenu = document.getElementById('mobile-menu');
         const menuIcon = document.getElementById('menu-icon');
-        const programToggle = document.getElementById('program-toggle');
-        const programDropdown = document.getElementById('program-dropdown');
         const navbar = document.getElementById('navbar');
         const navbarPlaceholder = document.getElementById('navbar-placeholder');
         
@@ -494,12 +449,6 @@
         
         closeMenu.addEventListener('click', function() {
             closeMenuFunc();
-        });
-        
-        // Program dropdown toggle
-        programToggle.addEventListener('click', function() {
-            programDropdown.classList.toggle('hidden');
-            this.querySelector('.fa-chevron-down').classList.toggle('rotate-180');
         });
         
         // Close menu ketika klik di luar
@@ -611,6 +560,54 @@
             localStorage.setItem('cookieAccepted', 'true');
             cookieBanner.style.display = 'none';
         });
+    });
+    </script>
+
+    <!-- Counter Animation Script -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const counters = document.querySelectorAll('.counter');
+        const speed = 200; // Kecepatan animasi - semakin kecil semakin cepat
+        
+        // Fungsi untuk mengecek apakah elemen terlihat di viewport
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+        
+        // Fungsi untuk menjalankan animasi counter
+        function runCounter() {
+            counters.forEach(counter => {
+                if (isElementInViewport(counter) && !counter.classList.contains('counted')) {
+                    counter.classList.add('counted');
+                    const target = +counter.getAttribute('data-target');
+                    const increment = target / speed;
+                    
+                    function updateCount() {
+                        const currentCount = +counter.innerText;
+                        if (currentCount < target) {
+                            counter.innerText = Math.ceil(currentCount + increment);
+                            setTimeout(updateCount, 1);
+                        } else {
+                            counter.innerText = target;
+                        }
+                    }
+                    
+                    updateCount();
+                }
+            });
+        }
+        
+        // Jalankan counternya saat scroll
+        window.addEventListener('scroll', runCounter);
+        
+        // Jalankan checker saat halaman dimuat
+        runCounter();
     });
     </script>
 </body>
