@@ -105,7 +105,7 @@
                     <a href="#tentang" class="nav-link px-4 py-2 text-white hover:text-green-200 transition font-medium">Tentang</a>
                     <a href="#program" class="nav-link px-4 py-2 text-white hover:text-green-200 transition font-medium">Program</a>
                     <a href="#galeri" class="nav-link px-4 py-2 text-white hover:text-green-200 transition font-medium">Galeri</a>
-                    <a href="#kontak" class="nav-btn ml-2 px-6 py-2.5 bg-white hover:bg-green-100 text-green-700 rounded-full transition duration-300 font-medium shadow-md">Hubungi Kami</a>
+                    <a href="{{ route('ppdb') }}" class="nav-btn ml-2 px-6 py-2.5 bg-white hover:bg-green-100 text-green-700 rounded-full transition duration-300 font-medium shadow-md">Daftar Sekarang</a>
                 </nav>
                 
                 <!-- Menu Mobile Button -->
@@ -192,7 +192,7 @@
             <div class="swiper-wrapper">
                 <!-- Slide 1 -->
                 <div class="swiper-slide relative h-screen">
-                    <img src="https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                    <img src="{{ asset('assets/hero 1.jpg') }}" 
                         alt="Madrasah" class="w-full h-full object-cover brightness-50">
                     <div class="absolute inset-0 flex flex-col justify-center items-center text-white p-4 text-center">
                         <h2 class="text-4xl md:text-6xl font-bold mb-4">Madrasah Diniyah Takmiliyah<br>Bilal bin Rabbah</h2>
@@ -203,7 +203,7 @@
                 
                 <!-- Slide 2 -->
                 <div class="swiper-slide relative h-screen">
-                    <img src="https://images.unsplash.com/photo-1629904853716-f0bc54eea481?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                    <img src="{{ asset('assets/hero 2.jpg') }}" 
                         alt="Kegiatan Belajar" class="w-full h-full object-cover brightness-50">
                     <div class="absolute inset-0 flex flex-col justify-center items-center text-white p-4 text-center">
                         <h2 class="text-4xl md:text-6xl font-bold mb-4">Pendidikan Islam yang Komprehensif</h2>
@@ -214,7 +214,7 @@
                 
                 <!-- Slide 3 -->
                 <div class="swiper-slide relative h-screen">
-                    <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                    <img src="{{ asset('assets/hero 3.jpg') }}" 
                         alt="Kegiatan Madrasah" class="w-full h-full object-cover brightness-50">
                     <div class="absolute inset-0 flex flex-col justify-center items-center text-white p-4 text-center">
                         <h2 class="text-4xl md:text-6xl font-bold mb-4">Lingkungan Belajar yang Islami</h2>
@@ -351,7 +351,7 @@
                             </div>
                             <div>
                                 <h4 class="font-semibold text-gray-800">Alamat</h4>
-                                <p class="text-gray-600">Jl. Pendidikan No. 123, Kota Bandung, Jawa Barat 40123</p>
+                                <p class="text-gray-600">Jl. Pasir Pogor Kp. Pasirpogor No.Rt 05/03, Malakasari, Kec. Baleendah, Kabupaten Bandung, Jawa Barat 40375</p>
                             </div>
                         </div>
                         <div class="flex items-start">
@@ -378,7 +378,7 @@
                             </div>
                             <div>
                                 <h4 class="font-semibold text-gray-800">Jam Operasional</h4>
-                                <p class="text-gray-600">Senin - Sabtu: 07.00 - 16.00 WIB</p>
+                                <p class="text-gray-600">Sabtu - Ahad : 07.00 - 20.00 WIB</p>
                             </div>
                         </div>
                     </div>
@@ -591,6 +591,27 @@
                 }
             });
         });
+    </script>
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-banner" class="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50 bg-white border border-green-200 shadow-lg rounded-xl px-6 py-4 flex flex-col md:flex-row items-center gap-4 max-w-lg w-[95%] md:w-auto transition-all duration-300" style="display:none;">
+        <span class="text-gray-700 text-sm flex-1">
+            Situs ini menggunakan cookies untuk meningkatkan pengalaman Anda. Dengan melanjutkan, Anda setuju dengan <a href="#" class="text-green-700 underline">kebijakan cookies</a> kami.
+        </span>
+        <button id="accept-cookies" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition">Terima</button>
+    </div>
+    <script>
+    // Cookie Consent Banner
+    document.addEventListener('DOMContentLoaded', function() {
+        const cookieBanner = document.getElementById('cookie-banner');
+        const acceptCookies = document.getElementById('accept-cookies');
+        if (!localStorage.getItem('cookieAccepted')) {
+            cookieBanner.style.display = 'flex';
+        }
+        acceptCookies.addEventListener('click', function() {
+            localStorage.setItem('cookieAccepted', 'true');
+            cookieBanner.style.display = 'none';
+        });
+    });
     </script>
 </body>
 </html>
