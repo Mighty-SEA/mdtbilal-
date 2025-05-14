@@ -261,13 +261,13 @@
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 <!-- Foto 1 dari Google Photos -->
                 <div class="overflow-hidden rounded-lg shadow-md">
-                    <img src="https://lh3.googleusercontent.com/pw/AP1GczN42vPNVRKg-uZtCazQwfS1v4XNK96AFBdpVGM7wN1MugLE5r0Ki_ws3N3jUT2H3UIAZHrSyxXdKBjdOEghqOzV-5nMk8fqCM4Dpp-Yq3qE1ngaEdGs=w800-h600" 
+                    <img src="https://lh3.googleusercontent.com/pw/AP1GczO4TkRd3EhRXhLr3w2vF2_bFHs-kEQo_MlO7wXToMtbcjeFmqoYRbPDcj61ggFeNaF07qgU_ce6gVajNKeeeJil_T6JdWuvsGj34_1PQDAe3-nnLpxS=w2400" 
                         alt="Kegiatan MDT 1" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110">
                 </div>
                 
                 <!-- Foto 2 dari Google Photos -->
                 <div class="overflow-hidden rounded-lg shadow-md">
-                    <img src="https://lh3.googleusercontent.com/pw/AP1GczMrtiamsdB4eaekeYf086ZFx03jTofXEbvfoPTvOT6DrTmZ127DwReCWwdcKxbPf1Hv-8Qy_m6NJKt_n3zKdQ1K84hzz9YyHlh2qwWCuz64BzNM3biF=w800-h600" 
+                    <img src="https://lh3.googleusercontent.com/pw/AP1GczNqyR4A7rGH1QABYn2HlaHq2fHIj-infJqByI438cPvxBFMkmlxJsyDVJHUsBSDVHXY55-7gt0TszNmJGAjeFZjRUioI9RiUNq9w3IK2zoWx6vsPNnv=w800-h600" 
                         alt="Kegiatan MDT 2" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110">
                 </div>
                 
