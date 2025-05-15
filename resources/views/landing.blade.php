@@ -24,7 +24,7 @@
             <div class="flex justify-between items-center">
                 <!-- Logo -->
                 <a href="#" class="navbar-brand flex items-center space-x-3">
-                    <img src="{{ asset('favicon-32x32.png') }}" alt="Logo" class="h-10 w-10">
+                    <img src="{{ asset('favicon-32x32.png') }}" alt="Logo" class="h-10 w-10" loading="lazy">
                     <div>
                         <h1 class="text-xl md:text-2xl font-bold text-white">MDT Bilal bin Rabbah</h1>
                         <p class="text-xs text-green-100">Pendidikan Islam Berkualitas</p>
@@ -57,7 +57,7 @@
             <div class="px-3 py-2">
                 <div class="flex justify-between items-center border-b border-gray-100 pb-2 mb-2">
                     <div class="flex items-center space-x-2">
-                        <img src="{{ asset('favicon-32x32.png') }}" alt="Logo" class="h-7 w-7">
+                        <img src="{{ asset('favicon-32x32.png') }}" alt="Logo" class="h-7 w-7" loading="lazy">
                         <span class="text-green-700 font-semibold text-sm">MDT Bilal bin Rabbah</span>
                     </div>
                     <button id="close-menu" class="text-gray-500 hover:text-green-700 focus:outline-none">
@@ -116,7 +116,7 @@
                 <!-- Slide 1 -->
                 <div class="swiper-slide relative h-screen">
                     <img src="{{ asset('assets/hero 1.jpg') }}" 
-                        alt="Madrasah" class="w-full h-full object-cover brightness-50">
+                        alt="Madrasah" class="w-full h-full object-cover brightness-50" loading="lazy">
                     <div class="absolute inset-0 flex flex-col justify-center items-center text-white p-4 text-center">
                         <h2 class="text-4xl md:text-6xl font-bold mb-4">Madrasah Diniyah Takmiliyah<br>Bilal bin Rabbah</h2>
                         <p class="text-xl md:text-2xl max-w-3xl mb-8">Membentuk Generasi Berakhlak Mulia, Hafal Al-Qur'an, dan Siap Menghadapi Tantangan Zaman</p>
@@ -127,7 +127,7 @@
                 <!-- Slide 2 -->
                 <div class="swiper-slide relative h-screen">
                     <img src="{{ asset('assets/hero 2.jpg') }}" 
-                        alt="Kegiatan Belajar" class="w-full h-full object-cover brightness-50">
+                        alt="Kegiatan Belajar" class="w-full h-full object-cover brightness-50" loading="lazy">
                     <div class="absolute inset-0 flex flex-col justify-center items-center text-white p-4 text-center">
                         <h2 class="text-4xl md:text-6xl font-bold mb-4">Pendidikan Islam yang Komprehensif</h2>
                         <p class="text-xl md:text-2xl max-w-3xl mb-8">Kurikulum yang Menggabungkan Ilmu Agama, Al-Qur'an, dan Keterampilan Hidup</p>
@@ -138,7 +138,7 @@
                 <!-- Slide 3 -->
                 <div class="swiper-slide relative h-screen">
                     <img src="{{ asset('assets/hero 3.jpg') }}" 
-                        alt="Kegiatan Madrasah" class="w-full h-full object-cover brightness-50">
+                        alt="Kegiatan Madrasah" class="w-full h-full object-cover brightness-50" loading="lazy">
                     <div class="absolute inset-0 flex flex-col justify-center items-center text-white p-4 text-center">
                         <h2 class="text-4xl md:text-6xl font-bold mb-4">Lingkungan Belajar yang Islami</h2>
                         <p class="text-xl md:text-2xl max-w-3xl mb-8">Membangun Karakter Siswa dalam Suasana Pembelajaran yang Menyenangkan</p>
@@ -162,7 +162,7 @@
             <div class="grid md:grid-cols-2 gap-10 items-center">
                 <div>
                     <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" 
-                        alt="Madrasah Kami" class="rounded-lg shadow-lg w-full h-[400px] object-cover">
+                        alt="Madrasah Kami" class="rounded-lg shadow-lg w-full h-[400px] object-cover" loading="lazy">
                 </div>
                 <div>
                     <h3 class="text-2xl font-semibold text-green-700 mb-4">Sejarah Kami</h3>
@@ -206,49 +206,49 @@
                 <!-- Foto 1 dari Google Photos -->
                 <div class="overflow-hidden rounded-lg shadow-md">
                     <img src="https://lh3.googleusercontent.com/pw/AP1GczO4TkRd3EhRXhLr3w2vF2_bFHs-kEQo_MlO7wXToMtbcjeFmqoYRbPDcj61ggFeNaF07qgU_ce6gVajNKeeeJil_T6JdWuvsGj34_1PQDAe3-nnLpxS=w2400   " 
-                        alt="Kegiatan MDT 1" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110">
+                        alt="Kegiatan MDT 1" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110" loading="lazy">
                 </div>
                 
                 <!-- Foto 2 dari Google Photos -->
                 <div class="overflow-hidden rounded-lg shadow-md">
                     <img src="https://lh3.googleusercontent.com/pw/AP1GczNqyR4A7rGH1QABYn2HlaHq2fHIj-infJqByI438cPvxBFMkmlxJsyDVJHUsBSDVHXY55-7gt0TszNmJGAjeFZjRUioI9RiUNq9w3IK2zoWx6vsPNnv=w800-h600" 
-                        alt="Kegiatan MDT 2" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110">
+                        alt="Kegiatan MDT 2" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110" loading="lazy">
                 </div>
                 
                 <!-- Foto 3 dari Google Photos -->
                 <div class="overflow-hidden rounded-lg shadow-md">
                     <img src="https://lh3.googleusercontent.com/pw/AP1GczPqWuw2aGygg466NgMcSJ8J9l7VOl1_Q2OqJOBCqtZwjfdL-UvbrxmXlk6hFWow6XTGwvhehr8bgrZtTsPlmHlOFNLpyXQjvI8ra3Paxw8c8ZkrdprT=w800-h600" 
-                        alt="Kegiatan MDT 3" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110">
+                        alt="Kegiatan MDT 3" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110" loading="lazy">
                 </div>
                 
                 <!-- Foto 4 dari Google Photos -->
                 <div class="overflow-hidden rounded-lg shadow-md">
                     <img src="https://lh3.googleusercontent.com/pw/AP1GczMZpzcaUfBNNxI4-H678D_J7uqXJS6ETpCayDaXc8m4_iNI0pGA7YyKqPhndXmEfsqwTDSyNo1X4RqgMWnqydOaEHTmxJVTGGwOU-6SL1IMxo9WJC67=w800-h600" 
-                        alt="Kegiatan MDT 4" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110">
+                        alt="Kegiatan MDT 4" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110" loading="lazy">
                 </div>
                 
                 <!-- Foto 5 dari Google Photos -->
                 <div class="overflow-hidden rounded-lg shadow-md">
                     <img src="https://lh3.googleusercontent.com/pw/AP1GczNwm4oSLcZdVaW8t0TD4oj6tZlGY5eSIIbifpcMyjLvxTghCv0OVHingmhYTtLh2ZSfIxHdVzWwThDrwFejhBiRAKp73oY-s9iWMuPDabKqmywQDJ75=w800-h600" 
-                        alt="Kegiatan MDT 5" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110">
+                        alt="Kegiatan MDT 5" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110" loading="lazy">
                 </div>
                 
                 <!-- Foto 6 dari Google Photos -->
                 <div class="overflow-hidden rounded-lg shadow-md">
                     <img src="https://lh3.googleusercontent.com/pw/AP1GczMzYpfJR77M9oNlDu4cYidl9mu3Rg5VNeMNsExXctemd3XMoWAxCyRiWjJInxIIGGp8YRDdp6uE7EDEVhLC3Y0mq_Zq4SdBEZRDX2QcfES8bX98N-B1=w800-h600" 
-                        alt="Kegiatan MDT 6" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110">
+                        alt="Kegiatan MDT 6" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110" loading="lazy">
                 </div>
                 
                 <!-- Foto 7 dari Google Photos -->
                 <div class="overflow-hidden rounded-lg shadow-md">
                     <img src="https://lh3.googleusercontent.com/pw/AP1GczNv_KX8Sk6zmWJLEx6sglSw3YaOtaJk4SbQ913FIVws2DecYjO3HtCph2mMbKisB-HsbE8GQD306kGCjB53wYDJ4WxpgtdbJTggJ910N87KjDS-FbZi=w800-h600" 
-                        alt="Kegiatan MDT 7" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110">
+                        alt="Kegiatan MDT 7" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110" loading="lazy">
                 </div>
                 
                 <!-- Foto 8 dari Google Photos -->
                 <div class="overflow-hidden rounded-lg shadow-md">
                     <img src="https://lh3.googleusercontent.com/pw/AP1GczMubF8bXkP8d15yaGBbNWpQNMAo9YS77EuwtcFnz1pPMmItj9px8YKbea9PWL1n_-W3D2CQNJEbkyufs_YVejr00-7Z6amVvS8Vgqkg7PvPM37dY5wc=w800-h600" 
-                        alt="Kegiatan MDT 8" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110">
+                        alt="Kegiatan MDT 8" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110" loading="lazy">
                 </div>
             </div>
         </div>
@@ -350,7 +350,7 @@
             <div class="flex flex-col">
                 <div class="mb-6">
                     <div class="flex items-center space-x-2 mb-4">
-                        <img src="{{ asset('favicon-32x32.png') }}" alt="Logo" class="h-10 w-10">
+                        <img src="{{ asset('favicon-32x32.png') }}" alt="Logo" class="h-10 w-10" loading="lazy">
                         <div>
                             <h3 class="text-xl font-bold">MDT Bilal bin Rabbah</h3>
                             <p class="text-xs text-green-200">Pendidikan Islam Berkualitas</p>
