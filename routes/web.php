@@ -11,5 +11,7 @@ Route::get('/ppdb', function () {
     return view('ppdb');
 })->name('ppdb');
 
-Route::post('/ppdb', [PpdbController::class, 'store'])->name('ppdb.store');
+Route::post('/ppdb', [PpdbController::class, 'store'])
+    ->middleware('throttle:2,1')
+    ->name('ppdb.store');
 Route::get('/ppdb/success/{registration_number}', [PpdbController::class, 'success'])->name('ppdb.success');

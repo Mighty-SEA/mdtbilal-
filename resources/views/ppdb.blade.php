@@ -129,6 +129,18 @@
     <main class="flex-1 flex items-center justify-center py-12 mt-8">
         <div class="bg-white rounded-xl shadow-lg p-8 w-full max-w-4xl border border-green-100">
             <h2 class="text-2xl font-bold text-green-700 mb-6 text-center">Formulir Pendaftaran PPDB</h2>
+            @if ($errors->any())
+                <div class="mb-6">
+                    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                        <strong class="font-bold">Terjadi kesalahan:</strong>
+                        <ul class="mt-2 list-disc list-inside text-sm">
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+            @endif
             <form action="{{ route('ppdb.store') }}" method="POST" class="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-6" autocomplete="off">
                 @csrf
                 <div class="col-span-1">
