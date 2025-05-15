@@ -129,19 +129,19 @@
     <main class="flex-1 flex items-center justify-center py-12 mt-8">
         <div class="bg-white rounded-xl shadow-lg p-8 w-full max-w-4xl border border-green-100">
             <h2 class="text-2xl font-bold text-green-700 mb-6 text-center">Formulir Pendaftaran PPDB</h2>
-            <form action="#" method="POST" class="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-6" autocomplete="off">
+            <form action="{{ route('ppdb.store') }}" method="POST" class="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-6" autocomplete="off">
                 @csrf
                 <div class="col-span-1">
-                    <label for="nama" class="block text-gray-700 font-medium mb-1">Nama Lengkap</label>
-                    <input type="text" id="nama" name="nama" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-400 focus:outline-none" autocomplete="off" maxlength="100" pattern="[A-Za-z\s]+" title="Hanya huruf dan spasi diperbolehkan">
+                    <label for="name" class="block text-gray-700 font-medium mb-1">Nama Lengkap</label>
+                    <input type="text" id="name" name="name" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-400 focus:outline-none" autocomplete="off" maxlength="100" pattern="[A-Za-z\s]+" title="Hanya huruf dan spasi diperbolehkan">
                 </div>
                 <div class="col-span-1">
-                    <label for="tanggal_lahir" class="block text-gray-700 font-medium mb-1">Tanggal Lahir</label>
-                    <input type="date" id="tanggal_lahir" name="tanggal_lahir" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-400 focus:outline-none" autocomplete="off">
+                    <label for="birth_date" class="block text-gray-700 font-medium mb-1">Tanggal Lahir</label>
+                    <input type="date" id="birth_date" name="birth_date" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-400 focus:outline-none" autocomplete="off">
                 </div>
                 <div class="col-span-1">
-                    <label for="tempat_lahir" class="block text-gray-700 font-medium mb-1">Tempat Lahir</label>
-                    <input type="text" id="tempat_lahir" name="tempat_lahir" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-400 focus:outline-none" autocomplete="off" maxlength="100">
+                    <label for="birth_place" class="block text-gray-700 font-medium mb-1">Tempat Lahir</label>
+                    <input type="text" id="birth_place" name="birth_place" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-400 focus:outline-none" autocomplete="off" maxlength="100">
                 </div>
                 <div class="col-span-1">
                     <label for="nik" class="block text-gray-700 font-medium mb-1">NIK</label>
@@ -156,8 +156,36 @@
                     <input type="text" id="nisn" name="nisn" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-400 focus:outline-none" autocomplete="off" pattern="[0-9]{10}" maxlength="10" title="NISN harus 10 digit angka" inputmode="numeric">
                 </div>
                 <div class="col-span-1">
-                    <label for="kelas" class="block text-gray-700 font-medium mb-1">Kelas</label>
-                    <select id="kelas" name="kelas" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-400 focus:outline-none" autocomplete="off">
+                    <label for="gender" class="block text-gray-700 font-medium mb-1">Jenis Kelamin</label>
+                    <select id="gender" name="gender" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-400 focus:outline-none" autocomplete="off">
+                        <option value="">Pilih Jenis Kelamin</option>
+                        <option value="Laki-laki">Laki-laki</option>
+                        <option value="Perempuan">Perempuan</option>
+                    </select>
+                </div>
+                <div class="col-span-1">
+                    <label for="origin_school" class="block text-gray-700 font-medium mb-1">Asal Sekolah</label>
+                    <input type="text" id="origin_school" name="origin_school" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-400 focus:outline-none" autocomplete="off" maxlength="100">
+                </div>
+                <div class="col-span-1">
+                    <label for="father_name" class="block text-gray-700 font-medium mb-1">Nama Ayah</label>
+                    <input type="text" id="father_name" name="father_name" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-400 focus:outline-none" autocomplete="off" maxlength="100" pattern="[A-Za-z\s]+" title="Hanya huruf dan spasi diperbolehkan">
+                </div>
+                <div class="col-span-1">
+                    <label for="mother_name" class="block text-gray-700 font-medium mb-1">Nama Ibu</label>
+                    <input type="text" id="mother_name" name="mother_name" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-400 focus:outline-none" autocomplete="off" maxlength="100" pattern="[A-Za-z\s]+" title="Hanya huruf dan spasi diperbolehkan">
+                </div>
+                <div class="col-span-1">
+                    <label for="father_job" class="block text-gray-700 font-medium mb-1">Pekerjaan Ayah</label>
+                    <input type="text" id="father_job" name="father_job" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-400 focus:outline-none" autocomplete="off" maxlength="100">
+                </div>
+                <div class="col-span-1">
+                    <label for="mother_job" class="block text-gray-700 font-medium mb-1">Pekerjaan Ibu</label>
+                    <input type="text" id="mother_job" name="mother_job" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-400 focus:outline-none" autocomplete="off" maxlength="100">
+                </div>
+                <div class="col-span-1">
+                    <label for="class" class="block text-gray-700 font-medium mb-1">Kelas</label>
+                    <select id="class" name="class" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-400 focus:outline-none" autocomplete="off">
                         <option value="">Pilih Kelas</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -168,24 +196,8 @@
                     </select>
                 </div>
                 <div class="col-span-1">
-                    <label for="asal_sekolah" class="block text-gray-700 font-medium mb-1">Asal Sekolah</label>
-                    <input type="text" id="asal_sekolah" name="asal_sekolah" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-400 focus:outline-none" autocomplete="off" maxlength="100">
-                </div>
-                <div class="col-span-1">
-                    <label for="nama_ortu" class="block text-gray-700 font-medium mb-1">Nama Orang Tua</label>
-                    <input type="text" id="nama_ortu" name="nama_ortu" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-400 focus:outline-none" autocomplete="off" maxlength="100" pattern="[A-Za-z\s]+" title="Hanya huruf dan spasi diperbolehkan">
-                </div>
-                <div class="col-span-1">
-                    <label for="pekerjaan_ortu" class="block text-gray-700 font-medium mb-1">Pekerjaan Orang Tua</label>
-                    <input type="text" id="pekerjaan_ortu" name="pekerjaan_ortu" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-400 focus:outline-none" autocomplete="off" maxlength="100">
-                </div>
-                <div class="col-span-1">
-                    <label for="whatsapp" class="block text-gray-700 font-medium mb-1">Nomor Orang Tua</label>
+                    <label for="whatsapp" class="block text-gray-700 font-medium mb-1">Nomor WhatsApp Orang Tua</label>
                     <input type="tel" id="whatsapp" name="whatsapp" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-400 focus:outline-none" autocomplete="off" pattern="[0-9]{10,13}" maxlength="13" title="Nomor telepon harus 10-13 digit angka" inputmode="tel">
-                </div>
-                <div class="md:col-span-2 col-span-1">
-                    <label for="alamat" class="block text-gray-700 font-medium mb-1">Alamat Lengkap</label>
-                    <textarea id="alamat" name="alamat" rows="3" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-400 focus:outline-none" autocomplete="off" maxlength="255"></textarea>
                 </div>
                 <div class="md:col-span-2 col-span-1">
                     <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-lg transition">Daftar Sekarang</button>
@@ -249,10 +261,9 @@
             const nikInput = document.getElementById('nik');
             const kkInput = document.getElementById('kk');
             const nisnInput = document.getElementById('nisn');
-            const whatsappInput = document.getElementById('whatsapp');
             
             // Hanya izinkan input angka untuk field tertentu
-            [nikInput, kkInput, nisnInput, whatsappInput].forEach(input => {
+            [nikInput, kkInput, nisnInput].forEach(input => {
                 if (input) {
                     input.addEventListener('keypress', function(e) {
                         if (!/[0-9]/.test(e.key)) {
@@ -289,13 +300,6 @@
                 if (nisnInput.value && nisnInput.value.length !== 10) {
                     alert('NISN harus 10 digit angka');
                     nisnInput.focus();
-                    isValid = false;
-                }
-                
-                // Validasi nomor WhatsApp
-                if (whatsappInput.value.length < 10 || whatsappInput.value.length > 13) {
-                    alert('Nomor telepon harus 10-13 digit angka');
-                    whatsappInput.focus();
                     isValid = false;
                 }
                 
