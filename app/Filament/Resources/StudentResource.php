@@ -44,6 +44,33 @@ class StudentResource extends Resource
                         'Perempuan' => 'Perempuan',
                     ])
                     ->required(),
+                Forms\Components\TextInput::make('nik')
+                    ->label('NIK')
+                    ->maxLength(32),
+                Forms\Components\TextInput::make('kk')
+                    ->label('No. KK')
+                    ->maxLength(32),
+                Forms\Components\TextInput::make('father_name')
+                    ->label('Nama Ayah')
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('mother_name')
+                    ->label('Nama Ibu')
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('father_job')
+                    ->label('Pekerjaan Ayah')
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('mother_job')
+                    ->label('Pekerjaan Ibu')
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('origin_school')
+                    ->label('Asal Sekolah')
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('nisn')
+                    ->label('NISN')
+                    ->maxLength(32),
+                Forms\Components\TextInput::make('birth_place')
+                    ->label('Tempat Lahir')
+                    ->maxLength(64),
             ]);
     }
 

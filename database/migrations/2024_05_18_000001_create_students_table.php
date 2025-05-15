@@ -14,6 +14,15 @@ return new class extends Migration
             $table->string('nis')->unique()->nullable();
             $table->date('birth_date')->nullable();
             $table->string('gender', 10)->nullable();
+            $table->string('nik')->nullable();
+            $table->string('kk')->nullable();
+            $table->string('father_name')->nullable();
+            $table->string('mother_name')->nullable();
+            $table->string('father_job')->nullable();
+            $table->string('mother_job')->nullable();
+            $table->string('origin_school')->nullable();
+            $table->string('nisn')->nullable();
+            $table->string('birth_place')->nullable();
             $table->timestamps();
         });
     }

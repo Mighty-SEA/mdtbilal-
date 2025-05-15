@@ -261,7 +261,7 @@
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 <!-- Foto 1 dari Google Photos -->
                 <div class="overflow-hidden rounded-lg shadow-md">
-                    <img src="https://lh3.googleusercontent.com/pw/AP1GczO4TkRd3EhRXhLr3w2vF2_bFHs-kEQo_MlO7wXToMtbcjeFmqoYRbPDcj61ggFeNaF07qgU_ce6gVajNKeeeJil_T6JdWuvsGj34_1PQDAe3-nnLpxS=w2400" 
+                    <img src="https://lh3.googleusercontent.com/pw/AP1GczO4TkRd3EhRXhLr3w2vF2_bFHs-kEQo_MlO7wXToMtbcjeFmqoYRbPDcj61ggFeNaF07qgU_ce6gVajNKeeeJil_T6JdWuvsGj34_1PQDAe3-nnLpxS=w2400   " 
                         alt="Kegiatan MDT 1" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110">
                 </div>
                 

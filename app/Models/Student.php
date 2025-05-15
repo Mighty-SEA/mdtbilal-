@@ -11,6 +11,7 @@ class Student extends Model
 
     protected $fillable = [
         'name', 'nis', 'birth_date', 'gender', 'is_alumni',
+        'nik', 'kk', 'father_name', 'mother_name', 'father_job', 'mother_job', 'origin_school', 'nisn', 'birth_place',
     ];
 
     public function classHistories()
