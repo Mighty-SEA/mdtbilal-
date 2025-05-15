@@ -114,7 +114,9 @@
             
             scanButton.addEventListener('click', function() {
                 qrScannerModal.style.display = 'flex';
-                startScanner();
+                setTimeout(() => {
+                    startScanner();
+                }, 300);
             });
             
             closeQrScannerBtn.addEventListener('click', function() {
@@ -143,8 +145,19 @@
                     scannerLoading.style.display = 'none';
                 })
                 .catch((err) => {
-                    scannerLoading.style.display = 'none';
-                    scanResult.textContent = 'Error: ' + err;
+                    html5QrCode.start(
+                        { facingMode: "user" }, 
+                        config, 
+                        onScanSuccess,
+                        onScanFailure
+                    )
+                    .then(() => {
+                        scannerLoading.style.display = 'none';
+                    })
+                    .catch((err2) => {
+                        scannerLoading.style.display = 'none';
+                        scanResult.textContent = 'Error: ' + err2;
+                    });
                 });
             }
             
