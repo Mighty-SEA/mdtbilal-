@@ -379,7 +379,7 @@
             </div>
             
             <div class="border-t border-green-700 mt-8 pt-8">
-                <p class="text-green-200">© 2023 MDT Bilal bin Rabbah. Hak Cipta Dilindungi.</p>
+                <p class="text-green-200">© {{ date('Y') }} MDT Bilal bin Rabbah. Hak Cipta Dilindungi.</p>
             </div>
         </div>
     </footer>
