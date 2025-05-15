@@ -6,7 +6,7 @@
     <title>Formulir Pendaftaran PPDB | MDT Bilal bin Rabbah</title>
     
     <!-- Keamanan tambahan dengan CSP yang kompatibel dengan Tailwind/Vite -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' ws: wss:;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https:; connect-src 'self' ws: wss:;">
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
@@ -26,28 +26,7 @@
     <meta name="theme-color" content="#ffffff">
     
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body { 
-            font-family: 'Poppins', sans-serif; 
-        }
-        .nav-scrolled {
-            @apply bg-white shadow-md;
-        }
-        .nav-scrolled .navbar-brand h1 {
-            @apply text-green-700;
-        }
-        .nav-scrolled .navbar-brand p {
-            @apply text-green-600;
-        }
-        .nav-scrolled .nav-link {
-            @apply text-gray-700 hover:text-green-700;
-        }
-        .nav-scrolled .nav-btn {
-            @apply bg-green-600 text-white hover:bg-green-700;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ asset('css/ppdb.css') }}">
 </head>
 <body class="font-sans bg-gray-50 min-h-screen flex flex-col">
     <!-- Header/Navbar -->
@@ -75,7 +54,9 @@
                 <!-- Menu Mobile Button -->
                 <div class="lg:hidden relative">
                     <button id="menu-toggle" class="text-white focus:outline-none">
-                        <i id="menu-icon" class="fas fa-bars text-2xl"></i>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" id="menu-icon">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
                     </button>
                     
                     <!-- Mobile Menu Dropdown -->
@@ -87,34 +68,47 @@
                                     <span class="text-green-700 font-semibold text-sm">MDT Bilal bin Rabbah</span>
                                 </div>
                                 <button id="close-menu" class="text-gray-500 hover:text-green-700 focus:outline-none">
-                                    <i class="fas fa-times text-xl"></i>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
                                 </button>
                             </div>
                             
                             <nav class="py-1">
                                 <div class="flex flex-col space-y-1">
                                     <a href="/" class="mobile-nav-link px-3 py-2 text-gray-700 hover:text-green-600 hover:bg-green-50 rounded-lg transition-all flex items-center text-sm">
-                                        <i class="fas fa-home w-7 text-green-600"></i>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                                        </svg>
                                         <span>Beranda</span>
                                     </a>
                                     <a href="/#tentang" class="mobile-nav-link px-3 py-2 text-gray-700 hover:text-green-600 hover:bg-green-50 rounded-lg transition-all flex items-center text-sm">
-                                        <i class="fas fa-info-circle w-7 text-green-600"></i>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
                                         <span>Tentang</span>
                                     </a>
                                     
                                     <a href="/#program" class="mobile-nav-link px-3 py-2 text-gray-700 hover:text-green-600 hover:bg-green-50 rounded-lg transition-all flex items-center text-sm">
-                                        <i class="fas fa-book-open w-7 text-green-600"></i>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                                        </svg>
                                         <span>Program</span>
                                     </a>
                                     
                                     <a href="/#galeri" class="mobile-nav-link px-3 py-2 text-gray-700 hover:text-green-600 hover:bg-green-50 rounded-lg transition-all flex items-center text-sm">
-                                        <i class="fas fa-images w-7 text-green-600"></i>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                        </svg>
                                         <span>Galeri</span>
                                     </a>
                                     
                                     <div class="pt-2 mt-1 border-t border-gray-100">
                                         <a href="/#kontak" class="block text-center bg-green-600 hover:bg-green-700 text-white py-2 px-3 rounded-lg transition duration-300 mt-1 text-sm">
-                                            <i class="fas fa-phone-alt mr-2"></i> Hubungi Kami
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                                            </svg>
+                                            Hubungi Kami
                                         </a>
                                     </div>
                                 </div>
@@ -224,119 +218,6 @@
     </footer>
 
     <!-- JavaScript -->
-    <script>
-        // Menu Toggle
-        const menuToggle = document.getElementById('menu-toggle');
-        const closeMenu = document.getElementById('close-menu');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const menuIcon = document.getElementById('menu-icon');
-        
-        function openMenu() {
-            mobileMenu.classList.remove('hidden', '-translate-y-2', 'opacity-0');
-            mobileMenu.classList.add('translate-y-0', 'opacity-100');
-            document.body.classList.add('overflow-hidden');
-        }
-        
-        function closeMenuFunc() {
-            mobileMenu.classList.add('-translate-y-2', 'opacity-0');
-            setTimeout(() => {
-                mobileMenu.classList.add('hidden');
-                document.body.classList.remove('overflow-hidden');
-            }, 300);
-        }
-        
-        menuToggle.addEventListener('click', function() {
-            openMenu();
-        });
-        
-        closeMenu.addEventListener('click', function() {
-            closeMenuFunc();
-        });
-        
-        // Close menu ketika klik di luar
-        document.addEventListener('click', function(event) {
-            if (!mobileMenu.contains(event.target) && !menuToggle.contains(event.target) && !mobileMenu.classList.contains('hidden')) {
-                closeMenuFunc();
-            }
-        });
-        
-        // Klik link pada mobile menu
-        document.querySelectorAll('.mobile-nav-link').forEach(link => {
-            link.addEventListener('click', function() {
-                closeMenuFunc();
-            });
-        });
-
-        // Validasi form tambahan
-        document.addEventListener('DOMContentLoaded', function() {
-            const form = document.querySelector('form');
-            const nikInput = document.getElementById('nik');
-            const kkInput = document.getElementById('kk');
-            const nisnInput = document.getElementById('nisn');
-            
-            // Hanya izinkan input angka untuk field tertentu
-            [nikInput, kkInput, nisnInput].forEach(input => {
-                if (input) {
-                    input.addEventListener('keypress', function(e) {
-                        if (!/[0-9]/.test(e.key)) {
-                            e.preventDefault();
-                        }
-                    });
-                    
-                    // Hapus karakter non-angka
-                    input.addEventListener('input', function() {
-                        this.value = this.value.replace(/[^0-9]/g, '');
-                    });
-                }
-            });
-            
-            // Validasi form sebelum submit
-            form.addEventListener('submit', function(e) {
-                let isValid = true;
-                
-                // Validasi NIK harus 16 digit
-                if (nikInput.value.length !== 16) {
-                    alert('NIK harus 16 digit angka');
-                    nikInput.focus();
-                    isValid = false;
-                }
-                
-                // Validasi KK harus 16 digit
-                if (kkInput.value.length !== 16) {
-                    alert('Nomor KK harus 16 digit angka');
-                    kkInput.focus();
-                    isValid = false;
-                }
-                
-                // Validasi NISN jika diisi harus 10 digit
-                if (nisnInput.value && nisnInput.value.length !== 10) {
-                    alert('NISN harus 10 digit angka');
-                    nisnInput.focus();
-                    isValid = false;
-                }
-                
-                if (!isValid) {
-                    e.preventDefault();
-                }
-                
-                // Mencegah double submit
-                if (isValid) {
-                    const submitBtn = form.querySelector('button[type="submit"]');
-                    submitBtn.disabled = true;
-                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Memproses...';
-                }
-            });
-            
-            // Hapus data form ketika halaman ditutup
-            window.addEventListener('beforeunload', function() {
-                // Hapus data sensitif dari form
-                form.reset();
-                
-                // Hapus data dari localStorage jika ada
-                localStorage.removeItem('form_data');
-                sessionStorage.clear();
-            });
-        });
-    </script>
+    <script src="{{ asset('js/ppdb.js') }}"></script>
 </body>
 </html> 

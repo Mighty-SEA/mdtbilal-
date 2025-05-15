@@ -147,6 +147,9 @@
                 </div>
             </div>
             <div class="swiper-pagination"></div>
+            <!-- Tombol navigasi -->
+            <div class="swiper-button-next hidden md:flex text-white"></div>
+            <div class="swiper-button-prev hidden md:flex text-white"></div>
         </div>
     </section>
 
@@ -394,20 +397,24 @@
         <button id="accept-cookies" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition">Terima</button>
     </div>
     <script>
-    // Cookie Consent Banner
-    document.addEventListener('DOMContentLoaded', function() {
-        const cookieBanner = document.getElementById('cookie-banner');
-        const acceptCookies = document.getElementById('accept-cookies');
-        if (!localStorage.getItem('cookieAccepted')) {
-            cookieBanner.style.display = 'flex';
-        }
-        acceptCookies.addEventListener('click', function() {
-            localStorage.setItem('cookieAccepted', 'true');
-            cookieBanner.style.display = 'none';
+        document.addEventListener('DOMContentLoaded', function() {
+            // Inisialisasi Swiper Hero
+            if (window.initHeroSwiper) {
+                window.initHeroSwiper();
+            }
+            
+            // Cookie Consent Banner
+            const cookieBanner = document.getElementById('cookie-banner');
+            const acceptCookies = document.getElementById('accept-cookies');
+            if (!localStorage.getItem('cookieAccepted')) {
+                cookieBanner.style.display = 'flex';
+            }
+            acceptCookies.addEventListener('click', function() {
+                localStorage.setItem('cookieAccepted', 'true');
+                cookieBanner.style.display = 'none';
+            });
         });
-    });
     </script>
-
     <!-- Counter Animation Script -->
     <script>
     document.addEventListener('DOMContentLoaded', function() {

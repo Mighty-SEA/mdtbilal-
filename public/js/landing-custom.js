@@ -97,9 +97,4 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             closeMenuFunc();
         }
     });
-});
-
-// Inisialisasi Swiper dari npm setelah DOM siap
-if (window.initHeroSwiper) {
-    window.initHeroSwiper();
-} 
+}); 
