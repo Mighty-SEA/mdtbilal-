@@ -19,6 +19,7 @@ use Filament\Notifications\Notification;
 use Filament\Pages\Page;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\DB;
+use Livewire\Attributes\On;
 
 class FastSppPayment extends Page implements HasForms
 {
@@ -62,44 +63,7 @@ class FastSppPayment extends Page implements HasForms
                             ->autofocus()
                             ->extraInputAttributes(['class' => 'text-lg', 'autocomplete' => 'off'])
                             ->afterStateUpdated(function ($state, $set) {
-                                $student = Student::where('nis', $state)->first();
-                                
-                                if ($student) {
-                                    $set('student_id', $student->id);
-                                    
-                                    // Tampilkan nama siswa
-                                    Notification::make()
-                                        ->title('Siswa ditemukan')
-                                        ->body('Nama: ' . $student->name)
-                                        ->success()
-                                        ->send();
-                                    
-                                    // Cek pembayaran terakhir
-                                    $lastPayment = SppPayment::where('student_id', $student->id)
-                                        ->orderBy('year', 'desc')
-                                        ->orderBy('month', 'desc')
-                                        ->first();
-                                        
-                                    if ($lastPayment) {
-                                        $bulan = [
-                                            1 => 'Januari', 2 => 'Februari', 3 => 'Maret', 4 => 'April',
-                                            5 => 'Mei', 6 => 'Juni', 7 => 'Juli', 8 => 'Agustus',
-                                            9 => 'September', 10 => 'Oktober', 11 => 'November', 12 => 'Desember'
-                                        ];
-                                        
-                                        Notification::make()
-                                            ->title('Pembayaran Terakhir')
-                                            ->body('Bulan: ' . $bulan[$lastPayment->month] . ' ' . $lastPayment->year)
-                                            ->info()
-                                            ->send();
-                                    }
-                                } else {
-                                    $set('student_id', null);
-                                    Notification::make()
-                                        ->title('Siswa tidak ditemukan')
-                                        ->danger()
-                                        ->send();
-                                }
+                                $this->findStudentAndUpdateForm($state, $set);
                             }),
                         
                         Grid::make(1)
@@ -133,6 +97,121 @@ class FastSppPayment extends Page implements HasForms
                     ]),
             ])
             ->statePath('data');
+    }
+    
+    #[On('processQrCodeScan')]
+    public function processQrCodeScan($qrContent)
+    {
+        return $this->findStudentByQrContent($qrContent);
+    }
+    
+    protected function findStudentAndUpdateForm($nis, $set)
+    {
+        $student = Student::where('nis', $nis)->first();
+                                
+        if ($student) {
+            $set('student_id', $student->id);
+            
+            // Tampilkan nama siswa
+            Notification::make()
+                ->title('Siswa ditemukan')
+                ->body('Nama: ' . $student->name)
+                ->success()
+                ->send();
+            
+            // Cek pembayaran terakhir
+            $lastPayment = SppPayment::where('student_id', $student->id)
+                ->orderBy('year', 'desc')
+                ->orderBy('month', 'desc')
+                ->first();
+                
+            if ($lastPayment) {
+                $bulan = [
+                    1 => 'Januari', 2 => 'Februari', 3 => 'Maret', 4 => 'April',
+                    5 => 'Mei', 6 => 'Juni', 7 => 'Juli', 8 => 'Agustus',
+                    9 => 'September', 10 => 'Oktober', 11 => 'November', 12 => 'Desember'
+                ];
+                
+                Notification::make()
+                    ->title('Pembayaran Terakhir')
+                    ->body('Bulan: ' . $bulan[$lastPayment->month] . ' ' . $lastPayment->year)
+                    ->info()
+                    ->send();
+            }
+        } else {
+            $set('student_id', null);
+            Notification::make()
+                ->title('Siswa tidak ditemukan')
+                ->danger()
+                ->send();
+        }
+    }
+    
+    public function findStudentByQrContent($qrContent)
+    {
+        // Format QR content adalah NIS_TOKEN
+        $parts = explode('_', $qrContent);
+        
+        if (count($parts) === 2) {
+            $nis = $parts[0];
+            $token = $parts[1];
+            
+            // Cari siswa berdasarkan NIS dan token
+            $student = Student::where('nis', $nis)
+                ->where('qr_token', $token)
+                ->first();
+                
+            if ($student) {
+                // Update form state
+                $this->data['nis'] = $student->nis;
+                $this->data['student_id'] = $student->id;
+                
+                // Reset form untuk memastikan perubahan terekam
+                $this->form->fill($this->data);
+                
+                // Tampilkan notifikasi
+                Notification::make()
+                    ->title('Siswa ditemukan dari QR')
+                    ->body('Nama: ' . $student->name)
+                    ->success()
+                    ->send();
+                    
+                // Cek pembayaran terakhir
+                $lastPayment = SppPayment::where('student_id', $student->id)
+                    ->orderBy('year', 'desc')
+                    ->orderBy('month', 'desc')
+                    ->first();
+                    
+                if ($lastPayment) {
+                    $bulan = [
+                        1 => 'Januari', 2 => 'Februari', 3 => 'Maret', 4 => 'April',
+                        5 => 'Mei', 6 => 'Juni', 7 => 'Juli', 8 => 'Agustus',
+                        9 => 'September', 10 => 'Oktober', 11 => 'November', 12 => 'Desember'
+                    ];
+                    
+                    Notification::make()
+                        ->title('Pembayaran Terakhir')
+                        ->body('Bulan: ' . $bulan[$lastPayment->month] . ' ' . $lastPayment->year)
+                        ->info()
+                        ->send();
+                }
+                
+                return true;
+            }
+            
+            Notification::make()
+                ->title('QR Code tidak valid')
+                ->body('Siswa tidak ditemukan untuk QR code ini')
+                ->danger()
+                ->send();
+        } else {
+            Notification::make()
+                ->title('Format QR Code tidak valid')
+                ->danger()
+                ->send();
+        }
+        
+        return false;
     }
 
     public function submit(): void

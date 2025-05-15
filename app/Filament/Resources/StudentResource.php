@@ -16,6 +16,8 @@ use App\Filament\Resources\StudentResource\RelationManagers\StudentClassHistorie
 use App\Models\ClassLevel;
 use App\Models\Classroom;
 use App\Models\StudentClassHistory;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
+use Illuminate\Support\HtmlString;
 
 class StudentResource extends Resource
 {
@@ -71,6 +73,12 @@ class StudentResource extends Resource
                 Forms\Components\TextInput::make('birth_place')
                     ->label('Tempat Lahir')
                     ->maxLength(64),
+                Forms\Components\TextInput::make('qr_token')
+                    ->label('QR Token')
+                    ->maxLength(10)
+                    ->dehydrated()
+                    ->disabled()
+                    ->helperText('Token akan digenerate otomatis'),
             ]);
     }
 
@@ -111,6 +119,36 @@ class StudentResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\Action::make('qrcode')
+                    ->label('Lihat QR Code')
+                    ->icon('heroicon-o-qr-code')
+                    ->modalSubmitAction(false)
+                    ->modalCancelAction(false)
+                    ->modalContent(function (Student $record) {
+                        if (empty($record->qr_token)) {
+                            $record->generateQrToken();
+                            $record->refresh();
+                        }
+                        
+                        $qrContent = $record->getQrCodeContent();
+                        $qrCode = QrCode::size(200)->generate($qrContent);
+                        
+                        return new HtmlString('
+                            <div class="flex flex-col items-center p-4">
+                                <h2 class="text-lg font-bold mb-2">QR Code untuk '.$record->name.'</h2>
+                                <div class="mb-2">'.$qrCode.'</div>
+                                <div class="text-sm text-gray-500">Konten: '.$qrContent.'</div>
+                            </div>
+                        ');
+                    }),
+                Tables\Actions\Action::make('regenerate_qr')
+                    ->label('Generate Ulang QR')
+                    ->icon('heroicon-o-arrow-path')
+                    ->action(function (Student $record) {
+                        $record->generateQrToken();
+                        $record->refresh();
+                    })
+                    ->requiresConfirmation(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -156,6 +194,15 @@ class StudentResource extends Resource
                                         'classroom_id' => $nextClassroom->id,
                                         'is_active' => true,
                                     ]);
+                                }
+                            }
+                        }),
+                    Tables\Actions\BulkAction::make('generate_qr_bulk')
+                        ->label('Generate QR Code')
+                        ->action(function ($records) {
+                            foreach ($records as $student) {
+                                if (empty($student->qr_token)) {
+                                    $student->generateQrToken();
                                 }
                             }
                         }),
