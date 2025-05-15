@@ -169,32 +169,27 @@ class FastSppPayment extends Page implements HasForms
                 // Reset form untuk memastikan perubahan terekam
                 $this->form->fill($this->data);
                 
-                // Tampilkan notifikasi
-                Notification::make()
-                    ->title('Siswa ditemukan dari QR')
-                    ->body('Nama: ' . $student->name)
-                    ->success()
-                    ->send();
-                    
                 // Cek pembayaran terakhir
                 $lastPayment = SppPayment::where('student_id', $student->id)
                     ->orderBy('year', 'desc')
                     ->orderBy('month', 'desc')
                     ->first();
-                    
+                
+                $body = 'Nama: ' . $student->name;
                 if ($lastPayment) {
                     $bulan = [
                         1 => 'Januari', 2 => 'Februari', 3 => 'Maret', 4 => 'April',
                         5 => 'Mei', 6 => 'Juni', 7 => 'Juli', 8 => 'Agustus',
                         9 => 'September', 10 => 'Oktober', 11 => 'November', 12 => 'Desember'
                     ];
-                    
-                    Notification::make()
-                        ->title('Pembayaran Terakhir')
-                        ->body('Bulan: ' . $bulan[$lastPayment->month] . ' ' . $lastPayment->year)
-                        ->info()
-                        ->send();
+                    $body .= '<br>Pembayaran terakhir: ' . $bulan[$lastPayment->month] . ' ' . $lastPayment->year;
                 }
+                // Tampilkan hanya satu notifikasi sukses
+                Notification::make()
+                    ->title('Siswa ditemukan dari QR')
+                    ->body($body)
+                    ->success()
+                    ->send();
                 
                 return true;
             }
