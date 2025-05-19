@@ -161,6 +161,7 @@ class SppPaymentResource extends Resource
         return [
             'index' => Pages\ListSppPayments::route('/'),
             'create' => Pages\CreateSppPayment::route('/create'),
+            'create2' => Pages\CreateSppPayment2::route('/create2'),
             'view' => Pages\ViewSppPayment::route('/{record}'),
             'edit' => Pages\EditSppPayment::route('/{record}/edit'),
         ];

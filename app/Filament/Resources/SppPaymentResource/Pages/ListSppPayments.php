@@ -14,6 +14,7 @@ class ListSppPayments extends ListRecords
     {
         return [
             Actions\CreateAction::make(),
+            Actions\CreateAction::make('create2')->label('Create SPP Payment 2')->url(fn() => SppPaymentResource::getUrl('create2')),
         ];
     }
 }
