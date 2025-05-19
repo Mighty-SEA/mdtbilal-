@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\SppPaymentResource\Pages;
 use App\Filament\Resources\SppPaymentResource\RelationManagers;
 use App\Models\SppPayment;
+use App\Models\Student;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -12,6 +13,8 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Forms\Components\DatePicker;
+use Filament\Support\Helpers\js;
 
 class SppPaymentResource extends Resource
 {
@@ -25,6 +28,43 @@ class SppPaymentResource extends Resource
     {
         return $form
             ->schema([
+                Forms\Components\Grid::make()
+                    ->schema([
+                        Forms\Components\Section::make('Scan QR')
+                            ->schema([
+                                Forms\Components\TextInput::make('qr_scan')
+                                    ->label('Scan QR Code')
+                                    ->placeholder('Scan QR atau input manual')
+                                    ->helperText('Tekan tombol scan atau masukkan kode QR secara manual')
+                                    ->suffixAction(
+                                        Forms\Components\Actions\Action::make('scan')
+                                            ->icon('heroicon-m-qr-code')
+                                            ->label('Scan')
+                                            ->modalContent(view('components.qr-scanner-modal'))
+                                    )
+                                    ->afterStateUpdated(function ($state, $set) {
+                                        if ($state) {
+                                            // Pisahkan nis dan token dari hasil scan
+                                            $qrParts = explode('_', $state);
+                                            if (count($qrParts) === 2) {
+                                                $nis = $qrParts[0];
+                                                $qrToken = $qrParts[1];
+                                                
+                                                // Cari siswa berdasarkan nis dan qr_token
+                                                $student = Student::where('nis', $nis)
+                                                    ->where('qr_token', $qrToken)
+                                                    ->first();
+                                                
+                                                if ($student) {
+                                                    $set('student_id', $student->id);
+                                                }
+                                            }
+                                        }
+                                    }),
+                            ])
+                            ->collapsible(),
+                    ]),
+                
                 Forms\Components\Select::make('student_id')
                     ->label('Siswa')
                     ->relationship('student', 'name')
@@ -52,7 +92,7 @@ class SppPaymentResource extends Resource
                     ->numeric()
                     ->default(date('Y'))
                     ->required(),
-                Forms\Components\DatePicker::make('paid_at')
+                DatePicker::make('paid_at')
                     ->label('Tanggal Bayar')
                     ->required(),
                 Forms\Components\TextInput::make('amount')
