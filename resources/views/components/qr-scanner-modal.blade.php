@@ -66,11 +66,7 @@
         },
         fillForm(decodedText) {
             this.result = 'QR Code terdeteksi, memproses...';
-            const input = document.querySelector('input[name=\'data.qr_scan\']');
-            if (input) {
-                input.value = decodedText;
-                input.dispatchEvent(new Event('input', { bubbles: true }));
-            }
+            window.dispatchEvent(new CustomEvent('qr-scanned', { detail: { value: decodedText } }));
             setTimeout(() => this.closeModal(), 1000);
         },
         closeModal() {
@@ -103,4 +99,40 @@
             <p class="text-sm text-gray-600 mb-2" x-text="result || 'Arahkan kamera ke QR code kartu siswa'"></p>
         </div>
     </div>
-</div> 
+</div>
+
+<script>
+window.addEventListener('qr-scanned', async function(e) {
+    let value = e.detail.value;
+    let response = await fetch('/api/scan-qr-siswa?qr=' + value);
+    let data = await response.json();
+    if(data && data.student && data.student.id) {
+        let select = document.querySelector('select[name="data.student_id"]');
+        if(select) {
+            select.value = data.student.id;
+            select.dispatchEvent(new Event('input', { bubbles: true }));
+            select.dispatchEvent(new Event('change', { bubbles: true }));
+        }
+        // Tutup modal Filament dengan delay dan fallback Escape
+        setTimeout(function() {
+            // Coba klik tombol close modal Filament
+            let closeBtn = document.querySelector('.fi-modal [aria-label="Close"], .fi-modal button[aria-label="Close"], .fi-modal [data-dismiss]');
+            if(closeBtn) {
+                closeBtn.click();
+            } else {
+                // Coba klik tombol Cancel/Batal
+                let cancelBtn = Array.from(document.querySelectorAll('.fi-modal button, .fi-modal a'))
+                    .find(el => el.textContent.trim().toLowerCase() === 'cancel' || el.textContent.trim().toLowerCase() === 'batal');
+                if(cancelBtn) {
+                    cancelBtn.click();
+                } else {
+                    // Fallback: trigger Escape
+                    window.dispatchEvent(new KeyboardEvent('keydown', {key: 'Escape'}));
+                }
+            }
+        }, 300);
+    } else {
+        alert('Siswa tidak ditemukan dari QR!');
+    }
+});
+</script> 

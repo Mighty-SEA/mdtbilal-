@@ -26,20 +26,10 @@ class CreateSppPayment2 extends CreateRecord
                         ->icon('heroicon-m-qr-code')
                         ->label('Scan QR')
                         ->modalContent(view('components.qr-scanner-modal'))
-                        ->action(function ($state, $set) {
-                            $qrParts = explode('_', $state);
-                            if (count($qrParts) === 2) {
-                                $nis = $qrParts[0];
-                                $qrToken = $qrParts[1];
-                                $student = Student::where('nis', $nis)
-                                    ->where('qr_token', $qrToken)
-                                    ->first();
-                                if ($student) {
-                                    $set('student_id', $student->id);
-                                }
-                            }
-                        })
-                ),
+                )
+                ->extraAttributes([
+                    'x-init' => "window.addEventListener('qr-scanned', async function(e) { let value = e.detail.value; let response = await fetch('/api/scan-qr-siswa?qr=' + value); let data = await response.json(); if(data && data.student_id) { this.value = data.student_id; this.dispatchEvent(new Event('input', { bubbles: true })); } }.bind(this));"
+                ]),
             Forms\Components\Select::make('month')
                 ->label('Bulan')
                 ->options([

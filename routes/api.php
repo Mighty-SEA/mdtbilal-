@@ -15,4 +15,9 @@ use App\Http\Controllers\ScanQrController;
 |
 */
 
-Route::get('/students/find-by-qr', [ScanQrController::class, 'findStudentByQr']); 
+Route::get('/students/find-by-qr', [ScanQrController::class, 'findStudentByQr']);
+
+Route::get('/scan-qr-siswa', function (Request $request) {
+    $code = $request->query('qr');
+    return app(\App\Http\Controllers\ScanQrController::class)->findStudentByQr(new Request(['code' => $code]));
+}); 
